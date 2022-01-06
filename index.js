@@ -72,6 +72,21 @@ async function run(){
       console.log(result);
       res.json(result);
   });
+    //add to product
+    app.post('/addtoproduct', async (req, res) => {
+      const data = req.body;
+      // const {productId,email}=data;
+      // const filter = {productId,email};
+      // const updateDoc = {
+
+      //   $set: data,
+  
+      // };
+      const options = { upsert: true };
+      const result = await productsCollection.insertOne(data);
+      console.log(result);
+      res.json(result);
+  });
   }
   finally{
     // await client.close();
